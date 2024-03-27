@@ -5,7 +5,7 @@ import { filteredProducts } from "../apiFecthing/apiFetching";
 import { sortByPrice } from "../apiFecthing/apiFetching";
 import Skeleton from "@mui/material/Skeleton";
 import title from "../jsondata/title.json";
-import { Key } from "@mui/icons-material";
+import Image from "next/image";
 function Productslist() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -110,10 +110,11 @@ function Productslist() {
                       href={`/${product.id}`}
                       className="group block overflow-hidden"
                     >
-                      <img
+                      <Image
                         src={product?.image}
                         alt=""
                         className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[300px]"
+                        width={499} height={642}
                       />
 
                       <div className="relative bg-red-50 pt-3 h-[148px] px-4">

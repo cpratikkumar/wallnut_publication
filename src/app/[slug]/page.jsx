@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { getSingleProduct } from "@/apiFecthing/apiFetching";
 import Skeleton from "@mui/material/Skeleton";
-function page({ params }) {
+import Image from "next/image";
+function Page({ params }) {
   const [singleProduct, setSingleProduct] = useState();
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -19,7 +20,7 @@ function page({ params }) {
       }
     };
     fetchData();
-  }, []);
+  }, [params.slug]);
 
   return (
     <section>
@@ -34,10 +35,11 @@ function page({ params }) {
           <div className="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
             <div className="relative z-10 lg:py-16">
               <div className="relative h-64 sm:h-80 lg:h-full">
-                <img
+                <Image
                   alt=""
                   src={singleProduct?.image}
-                  className="absolute inset-0 h-full w-full object-cover"
+                  className="absolute inset-0 h-full w-full object-cover"  width={499} height={642}
+                 
                 />
               </div>
             </div>
@@ -89,4 +91,4 @@ function page({ params }) {
   );
 }
 
-export default page;
+export default Page;
